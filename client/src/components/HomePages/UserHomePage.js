@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class HomePage extends Component {
+export default class UserHomePage extends Component {
     render() {
         return (
             <div>
-                Welcome to Home Page
+                Welcome to UserHomePage
             </div>
         )
     }
