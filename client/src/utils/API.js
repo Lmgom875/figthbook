@@ -5,6 +5,10 @@ export default {
   getUsers: function() {
     return axios.get("/api/users");
   },
+  //!Post new User
+  postUser: function(newUser) {
+    return axios.post("/api/users", newUser)
+  }
   // Gets the book with the given id
   // getBook: function(id) {
   //   return axios.get("/api/books/" + id);

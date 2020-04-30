@@ -12,12 +12,19 @@ userCtrl.getOneUser = async (req, res) => {
 };
 
 userCtrl.createOneUser = async (req, res) => {
-  const { firstName, lastName, userName, password } = req.body;
+  const { firstName, lastName, userName, password, phoneNumber, email, role, address, city, state, zip } = req.body;
   const newUser = new User({
     firstName,
     lastName,
     userName,
     password,
+    phoneNumber,
+    email,
+    role,
+    address, 
+    city,
+    state,
+    zip
   });
   await newUser.save();
   console.log(newUser);

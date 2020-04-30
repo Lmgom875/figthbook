@@ -4,25 +4,43 @@ const userSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    trim: true,
   },
   userName: {
     type: String,
     required: true,
-    trim: true,
-    unique: true,
+    unique: true
   },
   password: {
     type: String,
     required: true,
-    trim: true,
-    unique: true,
+    
   },
+  phoneNumber: {
+    type: Number,
+  },
+  email: {
+    type: String
+  },
+  role: {
+    type: String,
+    require: true
+  },
+  address: {
+    type: String
+  },
+  city: {
+    type: String
+  },
+  state: {
+    type: String
+  },
+  zip: {
+    type: Number
+  }
   
 },{
     timestamps: true
