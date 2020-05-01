@@ -12,7 +12,27 @@ userCtrl.getOneUser = async (req, res) => {
 };
 
 userCtrl.createOneUser = async (req, res) => {
-  const { firstName, lastName, userName, password, phoneNumber, email, role, address, city, state, zip } = req.body;
+  const {
+    firstName,
+    lastName,
+    userName,
+    password,
+    phoneNumber,
+    email,
+    role,
+    address,
+    city,
+    state,
+    zip,
+    division,
+    boxerHeight,
+    boxerReach,
+    couchName,
+    gymName,
+    titles,
+    licNum,
+  } = req.body;
+
   const newUser = new User({
     firstName,
     lastName,
@@ -21,10 +41,17 @@ userCtrl.createOneUser = async (req, res) => {
     phoneNumber,
     email,
     role,
-    address, 
+    address,
     city,
     state,
-    zip
+    zip,
+    division,
+    boxerHeight,
+    boxerReach,
+    couchName,
+    gymName,
+    titles,
+    licNum,
   });
   await newUser.save();
   console.log(newUser);
@@ -32,19 +59,19 @@ userCtrl.createOneUser = async (req, res) => {
 };
 
 userCtrl.deleteOneUser = async (req, res) => {
-    const oneUser = await User.findByIdAndDelete(req.params.id);
-    console.log(oneUser);
-    res.json({ message: "Usuario Borrado" });
-} 
+  const oneUser = await User.findByIdAndDelete(req.params.id);
+  console.log(oneUser);
+  res.json({ message: "Usuario Borrado" });
+};
 
 userCtrl.updateOneUser = async (req, res) => {
-    const { firstName, lastName, userName} = req.body;
-    await User.findByIdAndUpdate(req.params.id, {
-        firstName,
-        lastName,
-        userName
-        })
-    res.json({ message: "Usuario Altualizado" });
-}
+  const { firstName, lastName, userName } = req.body;
+  await User.findByIdAndUpdate(req.params.id, {
+    firstName,
+    lastName,
+    userName,
+  });
+  res.json({ message: "Usuario Altualizado" });
+};
 
 module.exports = userCtrl;

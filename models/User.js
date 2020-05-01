@@ -16,8 +16,7 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
-    
+    required: true, 
   },
   phoneNumber: {
     type: Number,
@@ -40,6 +39,27 @@ const userSchema = new Schema({
   },
   zip: {
     type: Number
+  },
+  division: {
+    type: String
+  },
+  boxerHeight: {
+    type: Number
+  },
+  boxerReach: {
+    type: Number
+  },
+  couchName: {
+    type: String
+  },
+  gymName: {
+    type: String
+  },
+  titles: {
+    type: String
+  },
+  licNum: {
+    type: String
   }
   
 },{
