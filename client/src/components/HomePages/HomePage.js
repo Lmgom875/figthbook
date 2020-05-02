@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
+import MainTable from "../Table";
+
 export default class HomePage extends Component {
   state = {
     users: [],
@@ -14,22 +16,27 @@ export default class HomePage extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container p-4">
         <div className="row">
           <div className="col-md-12">
-            <ul className="list-group">
-              {this.state.users.map((user) => (
-                <li className="list-group-item list-group-item-action" key= {user._id}>
-                  {user.firstName} {user.lastName} <br/>
-                  {user.userName} <br />
-                  {user.password} <br />
-                  {user.phoneNumber} <br />
-                  {user.email} <br />
-                  {user.role} <br />
-                  {user.address} {user.city} {user.state} {user.zip} 
-                </li>
-              ))}
-            </ul>
+            <div className="jumbotron">
+              <h1 className="display-4">Hello, world!</h1>
+              <p className="lead">
+                This is a simple hero unit, a simple jumbotron-style component
+                for calling extra attention to featured content or information.
+              </p>
+              <hr className="my-4" />
+              <p>
+                It uses utility classes for typography and spacing to space
+                content out within the larger container.
+              </p>
+              
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <MainTable users= {this.state.users}/>
           </div>
         </div>
       </div>
