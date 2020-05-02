@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import { withRouter } from 'react-router-dom';
 
 import UserSignUp from "./UserSignUp";
 import BoxerSignUp from "./BoxerSignUp";
 import CouchSignUp from "./CouchSignUp";
 import ComOfiSignUp from "./CommOficerSignUp";
 
-export default class SignUp extends Component {
-  state = {
+class SignUp extends Component {
+  initialState = {
     firstName: "",
     lastName: "",
     userName: "",
@@ -22,17 +23,25 @@ export default class SignUp extends Component {
     division: "",
     boxerHeight: "",
     boxerReach: "",
+    boxerWins: 0,
+    boxerLoses: 0,
     couchName: "",
     gymName: "",
     titles: "",
     licNum: "",
   };
 
+  state = this.initialState;
+
   onChangeInput = (e) => {
     console.log("change: ", e.target.name, e.target.value);
     this.setState({
       [e.target.name]: e.target.value,
     });
+  };
+
+  handleFormReset = () => {
+    this.setState(() => this.initialState);
   };
 
   onSubmit = async (e) => {
@@ -52,6 +61,8 @@ export default class SignUp extends Component {
       division: this.state.division,
       boxerHeight: this.state.boxerHeight,
       boxerReach: this.state.boxerReach,
+      boxerWins: this.state.boxerWins,
+      boxerLoses: this.state.boxerLoses,
       couchName: this.state.couchName,
       gymName: this.state.gymName,
       titles: this.state.titles,
@@ -60,6 +71,9 @@ export default class SignUp extends Component {
     console.log(newUser);
     const res = await API.postUser(newUser);
     console.log(res);
+    this.handleFormReset();
+    //todo cambiar a /login
+    this.props.history.push('/');
   };
 
   renderSwitch(param) {
@@ -92,3 +106,5 @@ export default class SignUp extends Component {
     );
   }
 }
+
+export default withRouter(SignUp);
