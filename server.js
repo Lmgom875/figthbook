@@ -1,4 +1,6 @@
 const express = require("express");
+const passport = require("passport");
+const session = require("express-session");
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -6,6 +8,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)

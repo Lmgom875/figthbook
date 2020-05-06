@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NarBar";
-import SignUp from './components/SignUpForms/SignUp'
-import LogIn from './components/LogIn'
+import Footer from './components/Footer'
+import SignUp from "./components/CreateForms/SignUp";
+import CreateEvent from './components/CreateForms/CreateEvent';
+import LogIn from "./components/LogIn";
 import HomePage from "./components/HomePages/HomePage";
-import UserHomePage from './components/HomePages/UserHomePage'
+import UserHomePage from "./components/HomePages/UserHomePage";
 import BoxerHomePage from "./components/HomePages/BoxerHomePage";
 import CouchHomePage from "./components/HomePages/CouchHomePage";
-import ComOfiHomePage from './components/HomePages/ComOfiHomePage'
+import ComOfiHomePage from "./components/HomePages/ComOfiHomePage";
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
           <Route exact path="/login">
             <LogIn />
           </Route>
+          <Route exact path="/newevent">
+            <CreateEvent />
+          </Route>
           <Route exact path="/user">
             <UserHomePage />
           </Route>
@@ -36,8 +41,8 @@ function App() {
           <Route exact path="/comofi">
             <ComOfiHomePage />
           </Route>
-
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

@@ -17,20 +17,33 @@ export default class NavBar extends Component {
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
-            aria-label="Toggle navigation">
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
+            <li className="nav-item active">
+                <Link className="nav-link" to="/comofi">
+                  Comm Officer
+                </Link>
+              </li>
               <li className="nav-item active">
-                  <Link className= 'nav-link' to= '/login'>Log In</Link>
-                
+                <Link className="nav-link" to="/newevent">
+                  Create Event
+                </Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/login">
+                  Log In
+                </Link>
               </li>
               <li className="nav-item">
-              <Link className= 'nav-link' to= '/signup'>Sign Up</Link>
+                <Link className="nav-link" to="/signup">
+                  Sign Up
+                </Link>
               </li>
-             
             </ul>
           </div>
         </div>

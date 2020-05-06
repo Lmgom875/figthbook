@@ -8,7 +8,23 @@ export default {
   //!Post new User
   postUser: function(newUser) {
     return axios.post("/api/users", newUser)
-  }
+  },
+  getEvents: function() {
+    return axios.get("/api/events")
+  },
+  postEvent: function(newEvent) {
+    return axios.post("/api/events", newEvent)
+  },
+  getFights: function() {
+    return axios.get("/api/fights")
+  },
+  postFight: function(newFight) {
+    return axios.post("/api/fights", newFight)
+  },
+  // postLogin: function(newLogin) {
+  //   return axios.post("/api/login", newLogin)
+  // }
+  
   // Gets the book with the given id
   // getBook: function(id) {
   //   return axios.get("/api/books/" + id);
