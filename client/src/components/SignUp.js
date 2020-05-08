@@ -70,13 +70,14 @@ class SignUp extends Component {
       licNum: this.state.licNum,
     };
     const res = await API.postSignup(newUser);
-    console.log(res);
+    console.log("desde signup react "+ res);
     if(res.data._id) {
       console.log("Accound Successfully Created");
     }
+    console.log('desde sign react despujes del if');
     this.handleFormReset();
     //todo cambiar a /login
-    this.props.history.push('/');
+    //this.props.history.push('/');
   };
 
   renderSwitch(param) {

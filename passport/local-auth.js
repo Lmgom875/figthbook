@@ -42,7 +42,7 @@ passport.use(
       newUser.gymName = req.param("gymName");
       newUser.titles = req.param("titles");
       newUser.licNum = req.param("licNum");
-      await newUser.save((err, savedUser) => {
+      await newUser.save((err) => {
         if (err) {
           console.log("Error in Saving user: " + err);
           throw err;
