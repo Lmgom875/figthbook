@@ -6,8 +6,11 @@ export default {
     return axios.get("/api/users");
   },
   //!Post new User
-  postUser: function(newUser) {
-    return axios.post("/api/users", newUser)
+  postSignup: function(newUser) {
+    return axios.post("/api/signup", newUser)
+  },
+  postLogin: function(newUser) {
+    return axios.post("/api/login", newUser)
   },
   getEvents: function() {
     return axios.get("/api/events")

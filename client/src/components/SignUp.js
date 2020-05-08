@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
+import API from "../utils/API";
 import { withRouter } from 'react-router-dom';
 
-import UserSignUp from "./UserSignUp";
-import BoxerSignUp from "./BoxerSignUp";
-import CouchSignUp from "./CouchSignUp";
-import ComOfiSignUp from "./CommOficerSignUp";
+import UserSignUp from "./CreateForms/UserSignUp";
+import BoxerSignUp from "./CreateForms/BoxerSignUp";
+import CouchSignUp from "./CreateForms/CouchSignUp";
+import ComOfiSignUp from "./CreateForms/CommOficerSignUp";
 
 class SignUp extends Component {
   initialState = {
@@ -29,6 +29,7 @@ class SignUp extends Component {
     gymName: "",
     titles: "",
     licNum: "",
+    redirecTo: null
   };
 
   state = this.initialState;
@@ -68,9 +69,11 @@ class SignUp extends Component {
       titles: this.state.titles,
       licNum: this.state.licNum,
     };
-    console.log(newUser);
-    const res = await API.postUser(newUser);
+    const res = await API.postSignup(newUser);
     console.log(res);
+    if(res.data._id) {
+      console.log("Accound Successfully Created");
+    }
     this.handleFormReset();
     //todo cambiar a /login
     this.props.history.push('/');

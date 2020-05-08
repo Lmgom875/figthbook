@@ -7,8 +7,14 @@ const {
   deleteOneUser,
 } = require("../../controllers/user.controller");
 
+router
+  .route("/")
+  .get(getMultiUsers);
 
-router.route("/").get(getMultiUsers).post(createOneUser);
+router
+  .route("/users/login")
+  .get(getMultiUsers)
+  .post(createOneUser);
 
 router
   .route("/users/:id")

@@ -61,7 +61,7 @@ export default function TonightFightLayout() {
               </div>
               
               <div className="form-group col-md-6">
-              <input class="btn btn-primary btn-block" type="submit" value="Submit"/>
+              <input className="btn btn-primary btn-block" type="submit" value="Submit"/>
               </div>
             </div>
           </form>

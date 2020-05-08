@@ -1,6 +1,5 @@
 const userCtrl = {};
 const User = require("../models/User");
-const passport =require("../passport");
 
 userCtrl.getMultiUsers = async (req, res) => {
   const users = await User.find({ role: "Boxer" });

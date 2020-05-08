@@ -3,7 +3,7 @@ import API from "../../utils/API";
 
 import EventTable from "../Tables/EventTable/EventTable";
 import CreateFight from "../CreateForms/CreateFight";
-import TonightFightLayout from '../TonightFightLayout';
+import TonightFightLayout from "../TonightFightLayout";
 
 export default class ComOfiHomePage extends Component {
   state = {
@@ -13,24 +13,32 @@ export default class ComOfiHomePage extends Component {
     showCreateFight: false,
     clickedEvent: "",
     selectUsers: "",
+    tonightFights: "",
     fighter1: "",
     fighter2: "",
   };
 
   onClickEvent = (e) => {
+    const currentState = this.state.showCreateFight;
+    this.setState({ showCreateFight: !currentState });
+    this.createFightRendering();
+
     const currentEvent = this.state.events;
     const clickedEvent = currentEvent.filter(function (elem) {
       return elem._id === e;
     });
     this.setState({ clickedEvent });
-    const currentState = this.state.showCreateFight;
-    this.setState({ showCreateFight: !currentState });
-    this.createFightRendering();
+    const fights = this.state.fights;
+    const tonightFights = fights.filter(function (elem) {
+      return elem.eventID === e;
+    });
+    console.log(tonightFights);
+    this.setState({ tonightFights });
   };
 
   createFightRendering = () => {
     const currentState = this.state.showCreateFight;
-    if (currentState === true) {  
+    if (currentState === true) {
       return (
         <CreateFight
           clickedEvent={this.state.clickedEvent}
@@ -40,6 +48,21 @@ export default class ComOfiHomePage extends Component {
           onSubmit={this.onSubmit}
         />
       );
+    } else {
+      return (
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <h5>Choice a Event</h5>
+          </div>
+        </div>
+      );
+    }
+  };
+
+  tonightFightRendering = () => {
+    const currentState = this.state.showCreateFight;
+    if (currentState === true) {
+      return <TonightFightLayout tonightFights={this.state.tonightFights} />;
     } else {
       return (
         <div className="row">
@@ -66,27 +89,34 @@ export default class ComOfiHomePage extends Component {
     });
   };
 
-  getTonightFightInfo = () => {
-       const figther1Info = "";
-       const fighther2Info = "";
-
-
-  }
-
   onSubmit = async (e) => {
     e.preventDefault();
+    const allUsers = this.state.users;
+    const fighter1ID = this.state.fighter1;
+    const fighter2ID = this.state.fighter2;
+
+    const fighter1 = allUsers.filter(function (elem) {
+      return elem._id === fighter1ID;
+    });
+    console.log(fighter1);
+
+    const fighter2 = allUsers.filter(function (elem) {
+      return elem._id === fighter2ID;
+    });
+    console.log(fighter2);
+
     const newFight = {
       eventID: this.state.clickedEvent[0]._id,
-      fighter1ID: this.state.fighter1,
-      fighter2ID: this.state.fighter2  
+      fighter1ID: fighter1,
+      fighter2ID: fighter2,
     };
-    const res = await API.postFight(newFight);
-    console.log(res);
+     const res = await API.postFight(newFight);
+     console.log(res);
     const fightsResp = await API.getFights();
     this.setState({ fights: fightsResp.data });
     //this.handleFormReset();
     //todo cambiar a /login
-   // this.props.history.push('/');
+    // this.props.history.push('/');
   };
 
   async componentDidMount() {
@@ -127,7 +157,7 @@ export default class ComOfiHomePage extends Component {
                     <div className="col-md-12 text-center">
                       <h2>Create a Fight</h2>
                     </div>
-                  </div> 
+                  </div>
                   {this.createFightRendering()}
                 </div>
               </div>
@@ -137,7 +167,7 @@ export default class ComOfiHomePage extends Component {
               <div className="row">
                 <div className="col-md-12 text-center">
                   <h2>Tonight Fights</h2>
-                  <TonightFightLayout />
+                  {this.tonightFightRendering()}
                 </div>
               </div>
             </div>

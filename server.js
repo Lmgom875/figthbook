@@ -5,11 +5,17 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+require('./passport/local-auth');
+const PORT = process.env.PORT || 3001; 
 
 // Define middleware here
 
 // Passport
+app.use(session({
+  secret: "mysecretsession",
+  resave: false,
+  saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

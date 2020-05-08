@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import API from "../../utils/API";
+import API from "../utils/API";
 
 
 
@@ -30,8 +30,8 @@ state = {
         email: this.state.email,
       };
       console.log(newLogin);
-      //const res = await API.postLogin(newLogin);
-     // console.log(res);
+      const res = await API.postLogin(newLogin);
+      console.log(res);
      // this.handleFormReset();
       //todo cambiar a /login
       //this.props.history.push('/');
@@ -83,7 +83,7 @@ state = {
             <h5>or</h5>
           </div>
           <div className="form-group col-md-2">
-            <button type="button" class="btn btn-primary btn-lg btn-block">
+            <button type="button" className="btn btn-primary btn-lg btn-block">
               Sign Up
             </button>
           </div>
