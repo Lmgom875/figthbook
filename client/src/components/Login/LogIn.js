@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-
+import API from "../../utils/API";
+import './style.css';
 
 
 
@@ -40,13 +40,15 @@ state = {
   render() {
     return (
       <div className="container p-4">
+        <div className="row justify-content-center">
+          <div className="col-md-6 loginCol">
         <div className="form-row justify-content-center p-2">
-          <div className="col-md-5">
-            <h2>Log In</h2>
+          <div className="col-md-12 text-center">
+            <h1>Log In</h1>
           </div>
         </div>
         <div className="form-row justify-content-center">
-          <div className="form-group col-md-5">
+          <div className="form-group col-md-12">
             <label htmlFor="inputFirstName4">User Name</label>
             <input
               type="text"
@@ -58,7 +60,7 @@ state = {
           </div>
         </div>
         <div className="form-row justify-content-center">
-          <div className="form-group col-md-5">
+          <div className="form-group col-md-12">
             <label htmlFor="inputLastName4">Password</label>
             <input
               type="text"
@@ -70,7 +72,7 @@ state = {
           </div>
         </div>
         <div className="form-row justify-content-center">
-          <div className="form-group col-md-2">
+          <div className="form-group col-md-4">
             <button 
             type="button" 
             className="btn btn-primary btn-lg btn-block"
@@ -82,10 +84,13 @@ state = {
           <div className="form-group col-md-1 d-flex align-items-center justify-content-center">
             <h5>or</h5>
           </div>
-          <div className="form-group col-md-2">
+          <div className="form-group col-md-4">
             <button type="button" className="btn btn-primary btn-lg btn-block">
               Sign Up
             </button>
+          </div>
+        </div>
+
           </div>
         </div>
       </div>

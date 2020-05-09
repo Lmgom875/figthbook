@@ -1,0 +1,42 @@
+ .jumbotron {
+     background-color: whitesmoke;
+     border-style: solid;
+    border-radius: 25px;
+    border-width: 1px;
+    border-color: #dddddd;
+ }
+ 
+ .titleH1 {
+  font-family: "Reenie Beanie";
+  font-size: 75px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+  margin-bottom: 30px
+}
+.bodyP {
+  font-family: "Reenie Beanie";
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+.listLine {
+  font-family: "Reenie Beanie";
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+b {
+  font-family: "Reenie Beanie";
+  font-size: 40px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 18.5714px;
+}

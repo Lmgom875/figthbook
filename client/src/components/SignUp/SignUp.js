@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import { withRouter } from 'react-router-dom';
+import API from "../../utils/API";
+import { withRouter } from "react-router-dom";
+import "./style.css";
 
-import UserSignUp from "./CreateForms/UserSignUp";
-import BoxerSignUp from "./CreateForms/BoxerSignUp";
-import CouchSignUp from "./CreateForms/CouchSignUp";
-import ComOfiSignUp from "./CreateForms/CommOficerSignUp";
+import UserSignUp from "../CreateForms/UserSignUp";
+import BoxerSignUp from "../CreateForms/BoxerSignUp";
+import CouchSignUp from "../CreateForms/CouchSignUp";
+import ComOfiSignUp from "../CreateForms/CommOficerSignUp";
 
 class SignUp extends Component {
   initialState = {
@@ -29,7 +30,7 @@ class SignUp extends Component {
     gymName: "",
     titles: "",
     licNum: "",
-    redirecTo: null
+    redirecTo: null,
   };
 
   state = this.initialState;
@@ -70,11 +71,11 @@ class SignUp extends Component {
       licNum: this.state.licNum,
     };
     const res = await API.postSignup(newUser);
-    console.log("desde signup react "+ res);
-    if(res.data._id) {
+    console.log("desde signup react " + res);
+    if (res.data._id) {
       console.log("Accound Successfully Created");
     }
-    console.log('desde sign react despujes del if');
+    console.log("desde sign react despujes del if");
     this.handleFormReset();
     //todo cambiar a /login
     //this.props.history.push('/');
@@ -98,13 +99,22 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="container p-4">
+      <div className="container signupContainer p-4">
+        <div className="row justify-content-center">
+          <div className="col-md-4 text-center">
+            <h1>Sign Up</h1>
+          </div>
+        </div>
         <form className="mt-4" onSubmit={this.onSubmit}>
           <UserSignUp onChangeInput={this.onChangeInput} />
           {this.renderSwitch(this.state.role)}
-          <button type="submit" className="btn btn-primary">
-            Sign in
-          </button>
+          <div className="row m-2 justify-content-center">
+            <div className="col-md-4">
+              <button type="submit" className="btn btn-primary btn-block">
+                Sign in
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     );

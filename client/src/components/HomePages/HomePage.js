@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./HomePage.css";
 import API from "../../utils/API";
 
-import Jumbotron from '../Jumbotron';
+import Jumbotron from "../Junbotron/Jumbotron";
 import MainTable from "../Tables/BoxerTable/BoxerTable";
-import Card from '../Cards/Card'
+import Card from "../Cards/Card";
 
 export default class HomePage extends Component {
   state = {
@@ -19,7 +19,7 @@ export default class HomePage extends Component {
 
   render() {
     return (
-      <div className="container p-4">
+      <div className="container p-4 homepageContainer">
         <div className="row">
           <div className="col-md-12">
             <Jumbotron />
@@ -27,12 +27,10 @@ export default class HomePage extends Component {
         </div>
         <div className="row equal">
           <div className="col-md-4">
-              <Card />
+            <Card users={this.state.users} />
           </div>
           <div className="col-md-8">
-              <MainTable 
-              users={this.state.users}
-               />
+            <MainTable users={this.state.users} />
           </div>
         </div>
       </div>

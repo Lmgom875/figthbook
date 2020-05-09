@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NavBar from "./components/NarBar";
-import Footer from './components/Footer'
-import SignUp from "./components/SignUp";
-import CreateEvent from './components/CreateForms/CreateEvent';
-import LogIn from "./components/LogIn";
+import NavBar from "./components/NarBar/NarBar";
+import Footer from './components/Footer/Footer'
+import SignUp from "./components/SignUp/SignUp";
+import CreateEvent from './components/CreateForms/CreateEvent/CreateEvent';
+import LogIn from "./components/Login/LogIn";
 import HomePage from "./components/HomePages/HomePage";
 import UserHomePage from "./components/HomePages/UserHomePage";
 import BoxerHomePage from "./components/HomePages/BoxerHomePage";

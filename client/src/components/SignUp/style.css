@@ -1,0 +1,10 @@
+.signupContainer {
+    background-color: whitesmoke;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 1px;
+    border-color: #dddddd;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 20px;
+}

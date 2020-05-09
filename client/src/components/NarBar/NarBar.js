@@ -1,13 +1,23 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './style.css';
+import logo from '../image/fightbook-logo.jpg';
+import textLogo from '../image/fightbookText-logo.png';
 
 export default class NavBar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <Link className="navbar-brand" to="/">
-            Fight Book
+      <nav className="navbar navbar-expand-lg">
+        <div className="container nombre">
+          <img 
+          className="logo-img"
+          src={logo}
+          alt="logo"/>
+          <Link className="navbar-brand m-1" to="/">
+            <img 
+            className='logoText'
+            src={textLogo}
+            alt='textLogo'/>
           </Link>
 
           <button

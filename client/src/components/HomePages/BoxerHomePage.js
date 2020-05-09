@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Jumbotron from '../Jumbotron';
+import Jumbotron from '../Junbotron/Jumbotron';
 import Card from '../Cards/Card';
 import MainTable from '../Tables/BoxerTable/BoxerTable';
 
